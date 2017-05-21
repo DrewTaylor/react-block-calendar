@@ -1,0 +1,4 @@
+proj/dist
+
+# Dependency directory
+proj/node_modules
