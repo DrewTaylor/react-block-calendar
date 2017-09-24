@@ -1,78 +1,78 @@
-.calendar-block {
+.calendar-block {}
+
+.date-block {
+    position: absolute;
+    text-align: center;
+    border-right: 1px solid lightgray;
+    border-bottom: 1px solid lightgray;
+    box-sizing: border-box
 }
 
 .month-block {
-  position: relative;
-  display: inline-block;
-}
-
-.date-block {
-  position: absolute;
-  text-align: center;
-  border-right: 1px solid lightgray;
-  border-bottom: 1px solid lightgray;
-  box-sizing: border-box
-}
-
-.month-block .date-block:first-child{
-  border-top: 1px solid black
-}
-
-.month-block .date-block:nth-child(1),
-.month-block .date-block:nth-child(2),
-.month-block .date-block:nth-child(3),
-.month-block .date-block:nth-child(4),
-.month-block .date-block:nth-child(5),
-.month-block .date-block:nth-child(6),
-.month-block .date-block:nth-child(7) {
-  border-left: 1px solid black;
-}
-
-.month-block .date-block:last-child{
-  border-bottom: 1px solid black
-}
-
-.month-block .date-block:nth-last-child(1),
-.month-block .date-block:nth-last-child(2),
-.month-block .date-block:nth-last-child(3),
-.month-block .date-block:nth-last-child(4),
-.month-block .date-block:nth-last-child(5),
-.month-block .date-block:nth-last-child(6),
-.month-block .date-block:nth-last-child(7) {
-  border-right: 1px solid black;
-}
-
-.month-block:first-child .date-block:first-child{
-  border-top: 2px solid black
-}
-
-.month-block:first-child .date-block:nth-child(1),
-.month-block:first-child .date-block:nth-child(2),
-.month-block:first-child .date-block:nth-child(3),
-.month-block:first-child .date-block:nth-child(4),
-.month-block:first-child .date-block:nth-child(5),
-.month-block:first-child .date-block:nth-child(6),
-.month-block:first-child .date-block:nth-child(7) {
-  border-left: 2px solid black;
-}
-
-.month-block:last-child .date-block:last-child{
-  border-bottom: 2px solid black
-}
-
-.month-block:last-child .date-block:nth-last-child(1),
-.month-block:last-child .date-block:nth-last-child(2),
-.month-block:last-child .date-block:nth-last-child(3),
-.month-block:last-child .date-block:nth-last-child(4),
-.month-block:last-child .date-block:nth-last-child(5),
-.month-block:last-child .date-block:nth-last-child(6),
-.month-block:last-child .date-block:nth-last-child(7) {
-  border-right: 2px solid black;
-}
-
-.month-block .date-block.date-block--day-0 {
-  border-top: 2px solid black;
-}
-.month-block .date-block.date-block--day-6 {
-  border-bottom: 2px solid black;
+    position: relative;
+    display: inline-block;
+    .date-block {
+        &:first-child {
+            border-top: 1px solid black
+        }
+        &:nth-child(1),
+        &:nth-child(2),
+        &:nth-child(3),
+        &:nth-child(4),
+        &:nth-child(5),
+        &:nth-child(6),
+        &:nth-child(7) {
+            border-left: 1px solid black;
+        }
+        &:last-child {
+            border-bottom: 1px solid black
+        }
+        &:nth-last-child(1),
+        &:nth-last-child(2),
+        &:nth-last-child(3),
+        &:nth-last-child(4),
+        &:nth-last-child(5),
+        &:nth-last-child(6),
+        &:nth-last-child(7) {
+            border-right: 1px solid black;
+        }
+    }
+    &:first-child {
+        .date-block {
+            &:first-child {
+                border-top: 2px solid black
+            }
+            &:nth-child(1),
+            &:nth-child(2),
+            &:nth-child(3),
+            &:nth-child(4),
+            &:nth-child(5),
+            &:nth-child(6),
+            &:nth-child(7) {
+                border-left: 2px solid black;
+            }
+        }
+    }
+    &:last-child {
+        .date-block {
+            &:last-child {
+                border-bottom: 2px solid black
+            }
+            &:nth-last-child(1),
+            &:nth-last-child(2),
+            &:nth-last-child(3),
+            &:nth-last-child(4),
+            &:nth-last-child(5),
+            &:nth-last-child(6),
+            &:nth-last-child(7) {
+                border-right: 2px solid black;
+            }
+        }
+    }
+    .date-block.date-block--day-0 {
+        border-top: 2px solid black;
+    }
+    .date-block.date-block--day-6 {
+        border-bottom: 2px solid black;
+    }
 }
