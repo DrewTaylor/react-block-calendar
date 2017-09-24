@@ -28,7 +28,7 @@ export class Root extends React.Component<IProps, void> {
         </h1>
         <BlockCalendarDisplay
           unitSize={30}
-          startDate={moment().add(-5, 'days')}
+          startDate={moment().add(5, 'days')}
           endDate={moment().add(1, 'year')}
           renderDate={this.renderDate} />
       </div>
