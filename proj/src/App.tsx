@@ -11,8 +11,9 @@ class Root extends React.Component<{}, void> {
     }
   
     renderDate = (date: moment.Moment) => {
+      const isWeekend = date.day() === 0 || date.day() === 6
       return (
-        <div onClick={this.handleOnClick(date)}>
+        <div className={ isWeekend ? 'weekend' : '' }onClick={this.handleOnClick(date)}>
           {date.date()}
         </div>
       )
@@ -26,7 +27,7 @@ class Root extends React.Component<{}, void> {
           </h1>
           <BlockCalendarDisplay
             unitSize={30}
-            startDate={moment().add(5, 'days')}
+            startDate={moment().add(-5, 'days')}
             endDate={moment().add(1, 'year')}
             renderDate={this.renderDate} />
         </div>
