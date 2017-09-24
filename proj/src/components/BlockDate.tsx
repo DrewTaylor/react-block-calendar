@@ -1,8 +1,6 @@
 import * as React from 'react'
 import * as moment from 'moment'
 
-import BlockDate from './BlockDate'
-
 export interface IProps {
   date: moment.Moment
   week: number
@@ -12,7 +10,7 @@ export interface IProps {
   renderDate: (date: moment.Moment) => JSX.Element
 }
 
-export default class BlockMonth extends React.Component<IProps, void> {
+export default class BlockDate extends React.Component<IProps, void> {
 
   render() {
     const { date, week, unitSize, renderDate } = this.props
