@@ -1,0 +1,48 @@
+@import './variables.scss';
+@mixin date-block-border($width-axis, $primary-side, $adjacent-side-1, $adjacent-side-2, $width, $color, $offset) {
+    .date-block {
+        &__border {
+            &--#{$primary-side} {
+                background-color: $color;
+                #{$width-axis}: $width;
+                #{$primary-side}: 0 - $offset;
+                #{$adjacent-side-1}: 0 - $offset;
+                #{$adjacent-side-2}: 0;
+            }
+        }
+    }
+}
+
+@mixin horizontal-date-border($primary-side, $adjacent-side-1, $adjacent-side-2, $width, $color, $offset) {
+    @include date-block-border('height', $primary-side, $adjacent-side-1, $adjacent-side-2, $width, $color, $offset)
+}
+
+@mixin vertical-date-border($primary-side, $adjacent-side-1, $adjacent-side-2, $width, $color, $offset) {
+    @include date-block-border('width', $primary-side, $adjacent-side-1, $adjacent-side-2, $width, $color, $offset)
+}
+
+@mixin left-date-border($width: $border-width, $color: $border-color, $offset: 0) {
+    @include vertical-date-border('left', 'top', 'bottom', $width, $color, $offset)
+}
+
+@mixin right-date-border($width: $border-width, $color: $border-color, $offset: 0) {
+    @include vertical-date-border('right', 'bottom', 'top', $width, $color, $offset)
+}
+
+@mixin top-date-border($width: $border-width, $color: $border-color, $offset: 0) {
+    @include horizontal-date-border('top', 'left', 'right', $width, $color, $offset)
+}
+
+@mixin bottom-date-border($width: $border-width, $color: $border-color, $offset: 0) {
+    @include horizontal-date-border('bottom', 'right', 'left', $width, $color, $offset)
+}
+
+@mixin outer-date-border($primary-side) {
+    .date-block {
+        &__border {
+            &--#{$primary-side} {
+                z-index: $border-outer-zindex;
+            }
+        }
+    }
+}

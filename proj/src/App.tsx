@@ -7,7 +7,7 @@ import BlockCalendarDisplay from './components/BlockCalendarDisplay'
 class Root extends React.Component<{}, void> {
     
     handleOnClick = (date: moment.Moment) => () => {
-      console.log('selected' + date.toDate())
+      console.log('selected ' + date.toDate())
     }
   
     renderDate = (date: moment.Moment) => {

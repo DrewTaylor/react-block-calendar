@@ -1,19 +1,26 @@
+@import './_mixins.scss';
+@import './variables.scss';
 .calendar-block {}
 
 .date-block {
     position: absolute;
     text-align: center;
-    border-right: 1px solid lightgray;
-    border-bottom: 1px solid lightgray;
-    box-sizing: border-box
+    box-sizing: border-box;
+    &__border {
+        position: absolute;
+        z-index: $border-zindex;
+    }
 }
 
+@include bottom-date-border();
+@include right-date-border();
 .month-block {
     position: relative;
     display: inline-block;
     .date-block {
         &:first-child {
-            border-top: 1px solid black
+            @include outer-date-border('top');
+            @include top-date-border($border-outer-width, $border-outer-color, $border-width);
         }
         &:nth-child(1),
         &:nth-child(2),
@@ -22,10 +29,12 @@
         &:nth-child(5),
         &:nth-child(6),
         &:nth-child(7) {
-            border-left: 1px solid black;
+            @include outer-date-border('left');
+            @include left-date-border($border-outer-width, $border-outer-color, $border-width);
         }
         &:last-child {
-            border-bottom: 1px solid black
+            @include outer-date-border('bottom');
+            @include bottom-date-border($border-outer-width, $border-outer-color);
         }
         &:nth-last-child(1),
         &:nth-last-child(2),
@@ -34,13 +43,15 @@
         &:nth-last-child(5),
         &:nth-last-child(6),
         &:nth-last-child(7) {
-            border-right: 1px solid black;
+            @include outer-date-border('right');
+            @include right-date-border($border-outer-width, $border-outer-color);
         }
     }
     &:first-child {
         .date-block {
             &:first-child {
-                border-top: 2px solid black
+                @include outer-date-border('top');
+                @include top-date-border($border-outer-width, $border-outer-color, $border-width);
             }
             &:nth-child(1),
             &:nth-child(2),
@@ -49,14 +60,16 @@
             &:nth-child(5),
             &:nth-child(6),
             &:nth-child(7) {
-                border-left: 2px solid black;
+                @include outer-date-border('left');
+                @include left-date-border($border-outer-width, $border-outer-color, $border-width);
             }
         }
     }
     &:last-child {
         .date-block {
             &:last-child {
-                border-bottom: 2px solid black
+                @include outer-date-border('bottom');
+                @include bottom-date-border($border-outer-width, $border-outer-color);
             }
             &:nth-last-child(1),
             &:nth-last-child(2),
@@ -65,14 +78,17 @@
             &:nth-last-child(5),
             &:nth-last-child(6),
             &:nth-last-child(7) {
-                border-right: 2px solid black;
+                @include outer-date-border('right');
+                @include right-date-border($border-outer-width, $border-outer-color);
             }
         }
     }
     .date-block.date-block--day-0 {
-        border-top: 2px solid black;
+        @include outer-date-border('top');
+        @include top-date-border($border-outer-width, $border-outer-color, $border-width);
     }
     .date-block.date-block--day-6 {
-        border-bottom: 2px solid black;
+        @include outer-date-border('bottom');
+        @include bottom-date-border($border-outer-width, $border-outer-color);
     }
 }

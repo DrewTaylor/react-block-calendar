@@ -17,14 +17,19 @@ export default class BlockDate extends React.Component<IProps, void> {
 
     const style: React.CSSProperties = {
       height: unitSize + 'px',
-      lineHeight: unitSize + 'px',
       width: unitSize + 'px',
       top: (date.day() * unitSize) + 'px',
       left: (week * unitSize) + 'px',
     }
     return (
-      <div className={ 'date-block date-block--day-' + date.day() } style={style}>
-        { this.props.renderDate(date) }
+      <div className={'date-block date-block--day-' + date.day()} style={style}>
+        <span className={'date-block__border date-block__border--left'} />
+        <span className={'date-block__border date-block__border--top'} />
+        <span className={'date-block__border date-block__border--right'} />
+        <span className={'date-block__border date-block__border--bottom'} />
+        <div className={'date-block__inner'}>
+          {this.props.renderDate(date)}
+        </div>
       </div>
     )
   }
